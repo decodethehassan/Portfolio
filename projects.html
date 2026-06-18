@@ -42,6 +42,57 @@
     <section class="projects-section">
         <div class="container">
             <div class="projects-list">
+                <!-- Main Project -->
+                <div class="project-detail-card featured-project" id="medical-wristband">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="project-title-section">
+                            <span class="main-project-badge">Main Project</span>
+                            <h3>Medical Wristband Firmware</h3>
+                            <p class="project-meta">2026 | Research Prototype | Firmware Project</p>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p><strong>Overview:</strong> Developed complete firmware for an nRF52840-based medical research wristband used for physiological sensing, local storage, BLE telemetry, and offline signal inspection. The firmware coordinates sensors, storage, wireless communication, and on-device processing in a modular embedded architecture.</p>
+                        <div class="project-details-grid">
+                            <div>
+                                <h5>Microcontroller</h5>
+                                <p>nRF52840 BLE SoC</p>
+                            </div>
+                            <div>
+                                <h5>Language</h5>
+                                <p>C, Python, CMake</p>
+                            </div>
+                            <div>
+                                <h5>Firmware Stack</h5>
+                                <p>Zephyr RTOS, BLE GATT</p>
+                            </div>
+                            <div>
+                                <h5>Sensors</h5>
+                                <p>MAX30101, LSM6DSO, ADS1113</p>
+                            </div>
+                        </div>
+                        <h5>Key Features:</h5>
+                        <ul>
+                            <li>Real-time PPG acquisition from MAX30101 red and IR channels</li>
+                            <li>Motion-aware signal quality handling using LSM6DSO IMU data</li>
+                            <li>Heart-rate and SpO2 candidate estimation using filtered PPG windows</li>
+                            <li>External W25N01 flash logging for raw and processed records</li>
+                            <li>BLE telemetry service for live data streaming and log transfer</li>
+                            <li>Python-based GUI for realtime signal visualization and offline inspection</li>
+                        </ul>
+                        <h5>Technologies & Tools:</h5>
+                        <p>nRF52840, Zephyr RTOS, BLE GATT, MAX30101, LSM6DSO, W25N01, ADS1113, C, Python, CMake, nRF tools</p>
+                        <h5>Project Note:</h5>
+                        <p>This project is built as a research and prototype firmware system, not as a clinical medical product.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/decodethehassan/Medical-Wristband-Firmware" target="_blank" class="btn btn-small"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Project 1 -->
                 <div class="project-detail-card">
                     <div class="project-header">
