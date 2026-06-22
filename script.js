@@ -4,13 +4,26 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
-    initNavigation();
-    initFormHandling();
-    initScrollAnimations();
-    setActiveNavLink();
-    initParallaxEffect();
-    initCounterAnimation();
-    initTypingEffect();
+    const initializers = [
+        initNavigation,
+        initFormHandling,
+        initScrollAnimations,
+        setActiveNavLink,
+        initParallaxEffect,
+        initTypingEffect,
+        initCircuitBackground,
+        initBootSequence,
+        initScrollReveal,
+        initTimelinePing
+    ];
+
+    initializers.forEach(fn => {
+        try {
+            fn();
+        } catch (err) {
+            console.error(`Error running ${fn.name}:`, err);
+        }
+    });
 });
 
 /* ============================================
@@ -367,6 +380,139 @@ function initTypingEffect() {
         });
         observer.observe(element);
     });
+}
+
+/* ============================================
+   CIRCUIT BACKGROUND
+   Injects an animated PCB-trace SVG into the hero
+   ============================================ */
+
+function initCircuitBackground() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'circuit-bg';
+    wrapper.innerHTML = `
+        <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path class="circuit-trace" d="M0,80 L180,80 L220,120 L420,120 L460,80 L700,80" />
+            <path class="circuit-trace" d="M1200,160 L980,160 L940,200 L760,200 L720,240 L500,240" />
+            <path class="circuit-trace" d="M0,320 L140,320 L180,360 L380,360 L420,400 L640,400 L680,440 L900,440" />
+            <path class="circuit-trace" d="M1200,500 L1000,500 L960,460 L800,460 L760,420 L600,420" />
+            <path class="circuit-trace" d="M100,0 L100,140 L60,180 L60,300" />
+            <path class="circuit-trace" d="M1100,0 L1100,180 L1140,220 L1140,360" />
+            <circle class="circuit-node" cx="220" cy="120" r="3.5" />
+            <circle class="circuit-node" cx="460" cy="80" r="3.5" />
+            <circle class="circuit-node" cx="940" cy="200" r="3.5" />
+            <circle class="circuit-node" cx="720" cy="240" r="3.5" />
+            <circle class="circuit-node" cx="180" cy="360" r="3.5" />
+            <circle class="circuit-node" cx="420" cy="400" r="3.5" />
+            <circle class="circuit-node" cx="680" cy="440" r="3.5" />
+            <circle class="circuit-node" cx="960" cy="460" r="3.5" />
+            <circle class="circuit-node" cx="60" cy="180" r="3.5" />
+            <circle class="circuit-node" cx="1140" cy="220" r="3.5" />
+        </svg>
+    `;
+    hero.prepend(wrapper);
+}
+
+/* ============================================
+   BOOT SEQUENCE
+   Device-style flicker-in for the hero name on load
+   ============================================ */
+
+function initBootSequence() {
+    const heroTitle = document.querySelector('.hero-title');
+    if (!heroTitle) return;
+
+    heroTitle.classList.add('boot-text');
+    // Trigger after a tiny delay so the browser registers the class change
+    requestAnimationFrame(() => {
+        setTimeout(() => heroTitle.classList.add('glitch-in'), 50);
+    });
+}
+
+/* ============================================
+   SCROLL REVEAL
+   Generic IntersectionObserver reveal for cards,
+   timeline items, skill bars, and sections site-wide
+   ============================================ */
+
+function initScrollReveal() {
+    // Auto-tag common elements with reveal classes if not already present
+    const autoTargets = [
+        { selector: '.card', cls: 'reveal' },
+        { selector: '.skill-card', cls: 'reveal' },
+        { selector: '.service-card', cls: 'reveal' },
+        { selector: '.faq-item', cls: 'reveal' },
+        { selector: '.project-detail-card', cls: 'reveal' },
+        { selector: '.achievement-card', cls: 'reveal' },
+        { selector: '.education-item', cls: 'reveal' },
+        { selector: '.timeline-item', cls: '' }, // timeline already animates via CSS, just observe for the dot ping
+        { selector: '.skill-bar', cls: 'reveal-left' },
+        { selector: '.section-title', cls: 'reveal' }
+    ];
+
+    autoTargets.forEach(({ selector, cls }) => {
+        const nodes = document.querySelectorAll(selector);
+        nodes.forEach((node, i) => {
+            if (cls && !node.classList.contains('reveal') && !node.classList.contains('reveal-left') &&
+                !node.classList.contains('reveal-right') && !node.classList.contains('reveal-scale')) {
+                node.classList.add(cls);
+                node.style.setProperty('--d', Math.min(i * 80, 480));
+            }
+        });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+
+                // If this reveal contains a progress bar fill, animate + charge-glow it
+                const fill = entry.target.querySelector ? entry.target.querySelector('.bar-fill') : null;
+                if (fill) {
+                    const targetWidth = fill.style.width;
+                    fill.style.width = '0%';
+                    requestAnimationFrame(() => {
+                        setTimeout(() => {
+                            fill.style.width = targetWidth;
+                            fill.classList.add('is-charged');
+                        }, 100);
+                    });
+                }
+
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        revealObserver.observe(el);
+    });
+}
+
+/* ============================================
+   TIMELINE PING
+   Triggers a signal-ping glow on each dot as its
+   timeline item scrolls into view
+   ============================================ */
+
+function initTimelinePing() {
+    const items = document.querySelectorAll('.timeline-item');
+    if (!items.length) return;
+
+    const pingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const dot = entry.target.querySelector('.timeline-dot');
+                if (dot) dot.classList.add('is-visible');
+                pingObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    items.forEach(item => pingObserver.observe(item));
 }
 
 /* ============================================
