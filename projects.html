@@ -184,6 +184,54 @@
                         </div>
                     </div>
                 </article>
+
+                <article class="project-detail-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-wifi"></i></div>
+                        <div class="project-title-section">
+                            <h3>WiFi CSI Occupancy Detection & Smart Heater Control</h3>
+                            <div class="project-meta">Project 04 · ESP32-C6 · WiFi CSI · Edge ML · Smart-Home Integration</div>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            A privacy-focused ESP32-C6 sensing platform that turns ordinary 2.4 GHz WiFi channel data into room-occupancy events. The firmware processes CSI locally, fuses multiple motion and micro-motion features with an on-device logistic-regression model, suppresses transient false positives, and preserves occupancy during still/sleeping conditions using breathing-band Doppler evidence. The resulting OCCUPIED and EMPTY events provide the control boundary for integration with a Mill smart panel heater over its local REST API.
+                        </p>
+
+                        <h5>Key Engineering Work</h5>
+                        <ul>
+                            <li>Built the ESP-IDF occupancy pipeline around ESP32-C6 CSI receive callbacks, with local feature extraction and decision logic running without a cloud dependency.</li>
+                            <li>Fused amplitude change, background residual, subcarrier decorrelation, breathing/micro-motion energy, spatial asymmetry, non-stationarity, and an embedded logistic-regression model into the occupancy score.</li>
+                            <li>Implemented multi-layer false-positive suppression using sequential evidence accumulation, transient-spike rejection, and temporal guards before declaring occupancy.</li>
+                            <li>Added breathing-band detection, persistent calibration in NVS, warm-start behavior, and night-mode logic for more reliable still-occupant handling.</li>
+                            <li>Defined an event-driven heater-control interface with fail-safe OFF behavior and a local REST integration path for occupied/empty setpoint control; the repository identifies the full heater-control module and end-to-end validation as follow-on work.</li>
+                        </ul>
+
+                        <div class="project-details-grid">
+                            <div><h5>MCU</h5><p>ESP32-C6</p></div>
+                            <div><h5>Sensing</h5><p>2.4 GHz WiFi CSI</p></div>
+                            <div><h5>Inference</h5><p>DSP + Edge ML</p></div>
+                            <div><h5>Integration</h5><p>Local REST API</p></div>
+                        </div>
+
+                        <div>
+                            <span class="tech-tag">ESP32-C6</span>
+                            <span class="tech-tag">ESP-IDF</span>
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">WiFi CSI</span>
+                            <span class="tech-tag">ESP-NOW</span>
+                            <span class="tech-tag">Signal Processing</span>
+                            <span class="tech-tag">Logistic Regression</span>
+                            <span class="tech-tag">NVS</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">IoT</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/decodethehassan/WiFi-CSI-Integration-with-smart-electric-heater" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-github"></i> View GitHub Repository</a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
