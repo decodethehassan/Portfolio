@@ -24,6 +24,13 @@ Repository: https://github.com/decodethehassan/BLE-Toolkit-app
 
 Presented as Project 02: a native Android/Kotlin BLE central and GATT-client toolkit with scanning, connection, service discovery, read/write, notifications/indications, MTU handling, live logs, and BLE utility tools.
 
+### Smart Medical Wristband Platform
+
+App repository: https://github.com/decodethehassan/SmartWatchApp  
+Firmware repository: https://github.com/decodethehassan/Medical-Wristband-Firmware
+
+Presented as Project 03: an end-to-end research wearable platform combining Zephyr-based nRF52840 firmware for PPG/motion acquisition, on-device signal processing, flash logging, and BLE telemetry with a React Native/TypeScript companion app for live physiological views, device-memory synchronization, raw `.bin` export, and Firebase-backed workflows.
+
 ## DevOps Skills Added
 
 - CI/CD pipeline automation

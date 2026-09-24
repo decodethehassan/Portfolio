@@ -134,6 +134,56 @@
                         </div>
                     </div>
                 </article>
+
+
+                <article class="project-detail-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-heart-pulse"></i></div>
+                        <div class="project-title-section">
+                            <h3>Smart Medical Wristband Platform</h3>
+                            <div class="project-meta">Project 03 · nRF52840 Firmware · BLE · React Native · Biosignal Processing</div>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>
+                            An end-to-end research wearable platform combining custom nRF52840 firmware with a companion mobile application. The firmware acquires physiological and motion data, performs on-device signal processing and quality checks, stores raw and processed records in external flash, and exposes live and historical data over BLE. The mobile app connects to the wristband, visualizes physiological and developer-level sensor data, synchronizes device memory, exports raw data, and integrates Firebase-backed user and cloud workflows.
+                        </p>
+
+                        <h5>Key Engineering Work</h5>
+                        <ul>
+                            <li>Developed Zephyr-based nRF52840 firmware integrating the MAX30101 PPG sensor, LSM6DSO IMU, W25N01 external flash, optional ADS1113 ADC, and BLE telemetry services.</li>
+                            <li>Implemented an on-device PPG processing pipeline with DC removal, filtering, motion-aware quality checks, peak detection, heart-rate estimation, and SpO2 candidate calculation.</li>
+                            <li>Built BLE data paths for live sensor telemetry, processed Algorithm V0 results, stored-memory synchronization, and retrieval of raw high-rate sensor data.</li>
+                            <li>Built the companion application with React Native, Expo, TypeScript, and react-native-ble-plx for wristband discovery, connection, live physiological views, and developer sensor inspection.</li>
+                            <li>Added Firebase authentication and Firestore integration, resumable raw-memory synchronization, local .bin generation, and share/export workflows for research and offline analysis.</li>
+                        </ul>
+
+                        <div class="project-details-grid">
+                            <div><h5>Device</h5><p>nRF52840 + Zephyr</p></div>
+                            <div><h5>Sensing</h5><p>PPG + IMU</p></div>
+                            <div><h5>Mobile</h5><p>React Native + TypeScript</p></div>
+                            <div><h5>Connectivity</h5><p>BLE + Firebase</p></div>
+                        </div>
+
+                        <div>
+                            <span class="tech-tag">nRF52840</span>
+                            <span class="tech-tag">Zephyr RTOS</span>
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Bluetooth LE</span>
+                            <span class="tech-tag">PPG</span>
+                            <span class="tech-tag">IMU</span>
+                            <span class="tech-tag">Signal Processing</span>
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/decodethehassan/SmartWatchApp" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-github"></i> App Repository</a>
+                            <a href="https://github.com/decodethehassan/Medical-Wristband-Firmware" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-github"></i> Firmware Repository</a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
