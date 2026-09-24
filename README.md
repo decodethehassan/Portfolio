@@ -14,13 +14,13 @@ Personal portfolio website for Muhammad Hassan, Firmware Engineer, Embedded Syst
 
 ### Embedded IoT DevOps Lab
 
-Repository: https://github.com/cmakehassan/embedded-iot-devops-lab
+Repository: https://github.com/decodethehassan/devops-rpi-stm
 
 The portfolio currently presents this as Project 01, highlighting multi-stage Azure DevOps YAML pipelines, reusable/parameterized templates, cross-project pipeline reuse, CI/CD automation, and embedded/IoT delivery workflows.
 
 ### BLE Toolkit Android App
 
-Repository: https://github.com/cmakehassan/BLE-Toolkit-APP
+Repository: https://github.com/decodethehassan/BLE-Toolkit-app
 
 Presented as Project 02: a native Android/Kotlin BLE central and GATT-client toolkit with scanning, connection, service discovery, read/write, notifications/indications, MTU handling, live logs, and BLE utility tools.
 
@@ -36,7 +36,7 @@ Presented as Project 02: a native Android/Kotlin BLE central and GATT-client too
 
 ## GitHub
 
-Current profile: https://github.com/cmakehassan
+Current profile: https://github.com/decodethehassan
 
 ## Run locally
 
