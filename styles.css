@@ -457,7 +457,7 @@ section {
     pointer-events: none;
 }
 
-.project-meta {
+.project-card .project-meta {
     display: flex;
     gap: 1.5rem;
     margin-top: 1.5rem;
@@ -466,7 +466,7 @@ section {
     flex-wrap: wrap;
 }
 
-.meta-item {
+.project-card .meta-item {
     font-size: 0.9rem;
     color: var(--text-lighter);
     font-weight: 600;
