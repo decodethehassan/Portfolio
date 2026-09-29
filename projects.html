@@ -13,6 +13,7 @@
             <div class="logo">
                 <i class="fas fa-microchip"></i>
                 <span>Muhammad Hassan</span>
+                <span class="status-pill"><span class="led-dot"></span>Online</span>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link">Home</a></li>
@@ -27,10 +28,10 @@
         </div>
     </nav>
 
-    <section style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 4rem 2rem; text-align: center;">
+    <section class="page-hero">
         <div class="container">
-            <h1 style="color: white;">Projects</h1>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Selected engineering work across embedded systems, IoT, DevOps, and automation</p>
+            <h1>Projects</h1>
+            <p>Selected engineering work across embedded systems, IoT, DevOps, and automation</p>
         </div>
     </section>
 
@@ -244,33 +245,35 @@
         </div>
     </section>
 
-    <footer style="background: linear-gradient(135deg, var(--secondary) 0%, #1a1f2e 100%); color: white; padding: 4rem 2rem 2rem; margin-top: 5rem; position: relative;">
+    <footer class="site-footer">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
-                <div>
-                    <h4 style="color: white; margin-bottom: 1.5rem; font-size: 1.2rem;">Muhammad Hassan</h4>
-                    <p style="color: #cbd5e1;">Firmware Engineer | Embedded Systems | DevOps</p>
-                    <p style="color: #cbd5e1; font-size: 0.9rem; margin-top: 1rem;">Building embedded products and reliable automation workflows for firmware and IoT teams.</p>
+            <div class="site-footer-grid">
+                <div class="site-footer-column">
+                    <h4 class="site-footer-title">Muhammad Hassan</h4>
+                    <p class="site-footer-copy">Firmware Engineer | Embedded Systems | DevOps</p>
+                    <p class="site-footer-copy">Building embedded products and reliable automation workflows for firmware and IoT teams.</p>
                 </div>
-                <div>
-                    <h4 style="color: white; margin-bottom: 1.5rem;">Quick Links</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.75rem;"><a href="index.html" style="color: #cbd5e1; transition: all 0.3s ease;">Home</a></li>
-                        <li style="margin-bottom: 0.75rem;"><a href="about.html" style="color: #cbd5e1; transition: all 0.3s ease;">About</a></li>
-                        <li style="margin-bottom: 0.75rem;"><a href="skills.html" style="color: #cbd5e1; transition: all 0.3s ease;">Skills</a></li>
-                        <li style="margin-bottom: 0.75rem;"><a href="projects.html" style="color: #cbd5e1; transition: all 0.3s ease;">Projects</a></li>
-                        <li><a href="contact.html" style="color: #cbd5e1; transition: all 0.3s ease;">Contact</a></li>
+                <div class="site-footer-column">
+                    <h4 class="site-footer-title">Quick Links</h4>
+                    <ul class="site-footer-link-list">
+                        <li class="site-footer-link-item"><a class="site-footer-link" href="index.html">Home</a></li>
+                        <li class="site-footer-link-item"><a class="site-footer-link" href="about.html">About</a></li>
+                        <li class="site-footer-link-item"><a class="site-footer-link" href="skills.html">Skills</a></li>
+                        <li class="site-footer-link-item"><a class="site-footer-link" href="projects.html">Projects</a></li>
+                        <li class="site-footer-link-item"><a class="site-footer-link" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 style="color: white; margin-bottom: 1.5rem;">GitHub</h4>
-                    <p style="color: #cbd5e1; margin-bottom: 1rem;">Explore my embedded, BLE, and DevOps projects directly on GitHub.</p>
-                    <a href="https://github.com/decodethehassan" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1;"><i class="fab fa-github"></i> github.com/decodethehassan</a>
+                <div class="site-footer-column">
+                    <h4 class="site-footer-title">GitHub</h4>
+                    <p class="site-footer-copy">Explore my embedded, BLE, and DevOps projects directly on GitHub.</p>
+                    <a class="site-footer-contact-link" href="https://github.com/decodethehassan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> github.com/decodethehassan</a>
                 </div>
             </div>
-            <div style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-                <p style="color: #94a3b8;">&copy; 2026 Muhammad Hassan. All rights reserved.</p>
-                <a href="https://github.com/decodethehassan" target="_blank" rel="noopener noreferrer" style="color: white;"><i class="fab fa-github"></i> GitHub</a>
+            <div class="site-footer-bottom">
+                <div class="site-footer-bottom-row">
+                    <p>&copy; 2026 Muhammad Hassan. All rights reserved.</p>
+                    <a class="site-footer-contact-link" href="https://github.com/decodethehassan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                </div>
             </div>
         </div>
     </footer>
